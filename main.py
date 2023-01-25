@@ -4,7 +4,7 @@ import requests
 
 base_url = "https://fakestoreapi.com"
 
-def getProduct():
+def get_product():
     headers_dict = {'Content-Type': 'application/json'}
     parameters = {'limit': 3}
     response = requests.get(f"{base_url}/products", params=parameters, headers = headers_dict)
@@ -13,12 +13,12 @@ def getProduct():
         return response.json()
     return {}
 
-def creatProduct(new_product):
+def creat_product(new_product):
     response = requests.post(f"{base_url}/products", json=new_product)
     return response.json()
 
 
-def editProduct(id):
+def edit_product(id):
     updated_product = {
         "title": 'updated_product',
         "category": 'clothing'
@@ -26,14 +26,14 @@ def editProduct(id):
     response = requests.put(f"{base_url}/products/{id}", json=updated_product)
     return response.json()
 
-def updatOneFieldProduct(id):
+def updat_one_field_product(id):
     updated_product = {
         "category": "electronic"
     }
     response = requests.patch(f"{base_url}/products/{id}", json=updated_product)
     return response.json()
 
-def deleteProduct(id):
+def delete_product(id):
     response = requests.delete(f"{base_url}/products/{id}")
     return response.json()
 
@@ -44,8 +44,8 @@ new_product = {
     "category": 'nothing'
 }
 
-print(getProduct())
-print(creatProduct(new_product))
-print(editProduct(3))   
-print(updatOneFieldProduct(3))
-print(deleteProduct(3))
+print(get_product())
+print(creat_product(new_product))
+print(edit_product(3))   
+print(updat_one_field_product(3))
+print(delete_product(3))
