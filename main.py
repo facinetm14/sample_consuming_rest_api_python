@@ -1,6 +1,6 @@
 import json
 import requests
-import pprint
+#import pprint
 
 base_url = "https://fakestoreapi.com"
 
